@@ -1089,10 +1089,10 @@ pre .javascript .function {
 .back-to-top.back-to-top-on {
   bottom: 30px;
 }
-#.header {
+.header {
   background: transparent;
 }
-.header {
+#.header {
   background: url("../../../../images/blog-logo.jpg");
 }
 .header-inner {
@@ -1826,7 +1826,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #63a8b4;
+  background: #ff5d5d;
 }
 .links-of-blogroll {
   font-size: 13px;
