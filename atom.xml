@@ -44,16 +44,16 @@
     <link href="http://yoursite.com/2019/06/06/%E4%BD%A0%E5%A5%BD%EF%BC%8Cblog/"/>
     <id>http://yoursite.com/2019/06/06/你好，blog/</id>
     <published>2019-06-06T01:56:23.000Z</published>
-    <updated>2019-06-10T12:53:09.389Z</updated>
+    <updated>2019-06-10T12:58:51.446Z</updated>
     
-    <content type="html"><![CDATA[<p>使用Hexo，是一件非常简单的事情。</p><p><img src="https://github.com/Malizhen/Malizhen.github.io/raw/master/images/blog-logo/master/images/blog-logo.jpg" alt="image"></p>]]></content>
+    <content type="html"><![CDATA[<p>使用Hexo，是一件非常简单的事情。</p><p><img src="https://raw.githubusercontent.com/Malizhen/Malizhen.github.io/master/images/blog-logo.jpg" alt="image"></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;使用Hexo，是一件非常简单的事情。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/Malizhen/Malizhen.github.io/raw/master/images/blog-logo/master/images/blog-logo.jp
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Malizhen/Malizhen.github.io/master/images/blog-logo.jpg&quot; alt=&quot;image
       
     
     </summary>
