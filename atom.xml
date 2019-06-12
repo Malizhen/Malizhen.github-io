@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-10T13:05:58.565Z</updated>
+  <updated>2019-06-12T13:27:02.317Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DRAM_Hierarchy</title>
+    <link href="http://yoursite.com/2019/06/12/DRAM-Hierarchy/"/>
+    <id>http://yoursite.com/2019/06/12/DRAM-Hierarchy/</id>
+    <published>2019-06-12T13:14:01.000Z</published>
+    <updated>2019-06-12T13:27:02.317Z</updated>
+    
+    <content type="html"><![CDATA[<p>DRAM（Dynamic Random Access Memory），即动态随机存取存储器，最为常见的系统内存。DRAM 只能将数据保持很短的时间。为了保持数据，DRAM使用电容存储，所以必须隔一段时间刷新（refresh）一次，如果存储单元没有被刷新，存储的信息就会丢失。设备关机也会丢失数据，不像磁盘硬盘等存储介质，类似于我们平时笔记本电脑的内存条。本文对DRAM系统的层次结构，做出了比较清晰直观的解读。</p><h3 id="DRAM系统的层次结构"><a href="#DRAM系统的层次结构" class="headerlink" title="DRAM系统的层次结构"></a>DRAM系统的层次结构</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;DRAM（Dynamic Random Access Memory），即动态随机存取存储器，最为常见的系统内存。DRAM 只能将数据保持很短的时间。为了保持数据，DRAM使用电容存储，所以必须隔一段时间刷新（refresh）一次，如果存储单元没有被刷新，存储的信息就会丢失。
+      
+    
+    </summary>
+    
+      <category term="存储" scheme="http://yoursite.com/categories/%E5%AD%98%E5%82%A8/"/>
+    
+    
+      <category term="DRAM" scheme="http://yoursite.com/tags/DRAM/"/>
+    
+  </entry>
   
   <entry>
     <title>VSCode:Remote-SSH配置</title>
