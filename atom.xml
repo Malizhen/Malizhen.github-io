@@ -5,9 +5,9 @@
   <subtitle>每一个不曾起舞的日子，都是对生命的辜负</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://malizhen.github.io/"/>
   <updated>2019-06-13T01:19:17.334Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://malizhen.github.io/</id>
   
   <author>
     <name>malizhen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>DRAM层次结构</title>
-    <link href="http://yoursite.com/2019/06/12/DRAM-Hierarchy/"/>
-    <id>http://yoursite.com/2019/06/12/DRAM-Hierarchy/</id>
+    <link href="http://malizhen.github.io/2019/06/12/DRAM-Hierarchy/"/>
+    <id>http://malizhen.github.io/2019/06/12/DRAM-Hierarchy/</id>
     <published>2019-06-12T13:14:01.000Z</published>
     <updated>2019-06-13T01:19:17.334Z</updated>
     
@@ -34,17 +34,17 @@
     
     </summary>
     
-      <category term="存储" scheme="http://yoursite.com/categories/%E5%AD%98%E5%82%A8/"/>
+      <category term="存储" scheme="http://malizhen.github.io/categories/%E5%AD%98%E5%82%A8/"/>
     
     
-      <category term="DRAM" scheme="http://yoursite.com/tags/DRAM/"/>
+      <category term="DRAM" scheme="http://malizhen.github.io/tags/DRAM/"/>
     
   </entry>
   
   <entry>
     <title>VSCode:Remote-SSH配置</title>
-    <link href="http://yoursite.com/2019/06/10/VsCode/"/>
-    <id>http://yoursite.com/2019/06/10/VsCode/</id>
+    <link href="http://malizhen.github.io/2019/06/10/VsCode/"/>
+    <id>http://malizhen.github.io/2019/06/10/VsCode/</id>
     <published>2019-06-10T01:54:25.000Z</published>
     <updated>2019-06-10T13:05:58.565Z</updated>
     
@@ -59,17 +59,17 @@
     
     </summary>
     
-      <category term="搭建与配置" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+      <category term="搭建与配置" scheme="http://malizhen.github.io/categories/%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     
     
-      <category term="VSCode" scheme="http://yoursite.com/tags/VSCode/"/>
+      <category term="VSCode" scheme="http://malizhen.github.io/tags/VSCode/"/>
     
   </entry>
   
   <entry>
     <title>Base-Delta-Immediate Compression</title>
-    <link href="http://yoursite.com/2019/06/06/Base-Delta-Immediate%20Compression/"/>
-    <id>http://yoursite.com/2019/06/06/Base-Delta-Immediate Compression/</id>
+    <link href="http://malizhen.github.io/2019/06/06/Base-Delta-Immediate%20Compression/"/>
+    <id>http://malizhen.github.io/2019/06/06/Base-Delta-Immediate Compression/</id>
     <published>2019-06-06T01:56:23.000Z</published>
     <updated>2019-06-13T13:50:47.451Z</updated>
     
@@ -84,17 +84,17 @@
     
     </summary>
     
-      <category term="论文阅读记录" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"/>
+      <category term="论文阅读记录" scheme="http://malizhen.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="compression algorithm" scheme="http://yoursite.com/tags/compression-algorithm/"/>
+      <category term="compression algorithm" scheme="http://malizhen.github.io/tags/compression-algorithm/"/>
     
   </entry>
   
   <entry>
     <title>重庆四人游</title>
-    <link href="http://yoursite.com/2019/06/06/Chongqing/"/>
-    <id>http://yoursite.com/2019/06/06/Chongqing/</id>
+    <link href="http://malizhen.github.io/2019/06/06/Chongqing/"/>
+    <id>http://malizhen.github.io/2019/06/06/Chongqing/</id>
     <published>2019-06-06T01:44:35.540Z</published>
     <updated>2019-06-10T13:22:21.820Z</updated>
     
@@ -109,10 +109,10 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://malizhen.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="旅游" scheme="http://yoursite.com/tags/%E6%97%85%E6%B8%B8/"/>
+      <category term="旅游" scheme="http://malizhen.github.io/tags/%E6%97%85%E6%B8%B8/"/>
     
   </entry>
   
