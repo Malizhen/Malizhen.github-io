@@ -46,14 +46,57 @@
 <p><img src="https://github.com/Malizhen/Malizhen.github.io/blob/master/images/Compression/2.png?raw=true" alt="images"></p>
 <p>针对以上前四种数据类型，很多论文中有专业的名词来表示它们，分别是Other Patterns、Repeated Values、Narrow Values、Zero Values。</p>
 <p><img src="https://github.com/Malizhen/Malizhen.github.io/blob/master/images/Compression/3.png?raw=true" alt="images"></p>
-<h2 id="Challenge-in-using-Compression"><a href="#Challenge-in-using-Compression" class="headerlink" title="Challenge in using Compression"></a>Challenge in using Compression</h2><p>1.压缩和解压缩都会产生额外的延迟和能耗，压缩延迟不在关键路径上，但是解压缩延迟位于缓存命中的关键路径上，对性能影响很大。</p>
-<p>2.往往现有的压缩率高的压缩算法，对应的就会有复杂的硬件设计，同时有很高的解压延迟开销。</p>
-<p>3.压缩仅在最后一级cache和main memory中有用，因为在L1 cache中存储压缩数据，由于解压缩带来的延迟开销无法接受。</p>
-<p>4.由于压缩是变长的，使得不同cache line的压缩不能并行。</p>
-<p>5.有些技术单独存储未压缩的line，由于复杂的硬件设计会造成很重的开销。</p>
-<p>6.存在某些不可压缩的数据(如加密数据)或低效的压缩算法。</p>
-<p>7.压缩块大小不是固定的，这会使得后续寻址变得困难，因为压缩前原有的线性映射会发生变化，或者由于压缩产生碎片可用空间。</p>
-<p>8.删除和插入数据的大小可能不同，导致替换策略变得复杂。</p>
-<p>9.最重要的一个问题，会或多或少产生额外的元数据，带来额外的存储开销。</p>
-<p>10.如果应用程序内存占用已经很小，压缩没有多大用处，如果内存占用较大，则压缩提供的额外容量也不够，这样来看怎么压缩好像显得有点鸡肋？</p>
-</div><div class="post-copyright"><blockquote><p>原文作者: malizhen</p><p>原文链接: <a href="http://malizhen.github.io/2019/06/26/Compression/">http://malizhen.github.io/2019/06/26/Compression/</a></p><p>版权声明: 转载请注明出处（必须保留原文作者署名及原文链接）</p></blockquote></div><div class="tags"><a href="/tags/compression-algorithm/">compression algorithm</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/06/12/DRAM-Hierarchy/" class="next">DRAM层次结构</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benefits-of-Data-Compression"><span class="toc-text">Benefits of Data Compression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Opportunities-for-Compression"><span class="toc-text">Opportunities for Compression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-in-using-Compression"><span class="toc-text">Challenge in using Compression</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/26/Compression/">Data Compression Techniques for Cache and Main Memory</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/12/DRAM-Hierarchy/">DRAM层次结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/VsCode/">VSCode:Remote-SSH配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/06/Base-Delta-Immediate Compression/">Base-Delta-Immediate Compression</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/06/Chongqing/">重庆四人游</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/存储/">存储</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/搭建与配置/">搭建与配置</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/论文阅读记录/">论文阅读记录</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/compression-algorithm/" style="font-size: 15px;">compression algorithm</a> <a href="/tags/旅游/" style="font-size: 15px;">旅游</a> <a href="/tags/DRAM/" style="font-size: 15px;">DRAM</a> <a href="/tags/VSCode/" style="font-size: 15px;">VSCode</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">malizhen.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.3"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.3" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
+<h2 id="Challenge-in-using-Compression"><a href="#Challenge-in-using-Compression" class="headerlink" title="Challenge in using Compression"></a>Challenge in using Compression</h2><p>任何一种技术都不可能十全十美，那么压缩有啥坏处呢？</p>
+<ol>
+<li><p>有压缩那就对应地有解压缩，而压缩和解压缩都会产生额外的延迟和能耗，压缩延迟不在关键路径上，但是解压缩延迟位于缓存命中的关键路径上，对性能影响很大。</p>
+</li>
+<li><p>往往现有的压缩率高的压缩算法，对应的就会有复杂的硬件设计，同时有很高的解压延迟开销。</p>
+</li>
+<li><p>压缩仅在最后一级cache和main memory中有用，因为在L1 cache中存储压缩数据，由于解压缩带来的延迟开销无法接受。</p>
+</li>
+<li><p>由于压缩是变长的，使得不同cache line的压缩不能并行。</p>
+</li>
+<li><p>有些技术单独存储未压缩的line，由于复杂的硬件设计会造成很重的开销。</p>
+</li>
+<li><p>存在某些不可压缩的数据(如加密数据)或低效的压缩算法。</p>
+</li>
+<li><p>压缩块大小不是固定的，这会使得后续寻址变得困难，因为压缩前原有的线性映射会发生变化，或者由于压缩产生碎片可用空间。</p>
+</li>
+</ol>
+<p><img src="https://github.com/Malizhen/Malizhen.github.io/blob/master/images/Compression/4.png?raw=true" alt="images"></p>
+<ol start="8">
+<li><p>删除和插入数据的大小可能不同，导致替换策略变得复杂。</p>
+</li>
+<li><p>最重要的一个问题，会或多或少产生额外的元数据，带来额外的存储开销。</p>
+</li>
+<li><p>如果应用程序内存占用已经很小，压缩没有多大用处，如果内存占用较大，则压缩提供的额外容量也不够，这样来看怎么压缩好像显得有点鸡肋？</p>
+</li>
+</ol>
+<h2 id="Need-of-Carefully-Choosing-Data-Block-Size"><a href="#Need-of-Carefully-Choosing-Data-Block-Size" class="headerlink" title="Need of Carefully Choosing Data-Block Size"></a>Need of Carefully Choosing Data-Block Size</h2><p>如何选择压缩数据块的大小，即压缩粒度怎么决定？越大越好or越小越好？</p>
+<ol>
+<li><p><strong>大的数据块大小作为压缩粒度</strong>：大块内会有更高的冗余，似乎还能够获得更高的压缩比，而且元数据存储开销也会比较低。但是即使只访问大块（例如，2KB）之中的某一个子块（例如，64B），也需要解压整个大块，产生无谓的解压开销，而这很影响性能。此外，在大块内想要找到特殊的模式（例如全为零）比较困难。</p>
+</li>
+<li><p><strong>小的数据块大小作为压缩粒度</strong>：与以上相反，此优点为彼缺点吧！值得注意的是，tag元数据存储开销会大大增加。</p>
+</li>
+</ol>
+<p>因此可以看出，压缩粒度的选择需要根据不同类型应用程序动态选择。</p>
+<h2 id="Some-Compression-Algorithm"><a href="#Some-Compression-Algorithm" class="headerlink" title="Some Compression Algorithm"></a>Some Compression Algorithm</h2><ol>
+<li><p>Huffman coding</p>
+</li>
+<li><p>Lempel-Ziv (LZ) algorithm (and  derivatives)</p>
+</li>
+<li><p>X-match and X-RL</p>
+</li>
+<li><p>Frequent value compression  (FVC)</p>
+</li>
+<li><p>Frequent pattern compression  (FPC)</p>
+</li>
+<li><p>C-PACK</p>
+</li>
+<li><p>Base delta immediate (BDI)  compression</p>
+</li>
+<li><p>Zero-value and narrow-value  detection</p>
+<p>…</p>
+</li>
+</ol>
+</div><div class="post-copyright"><blockquote><p>原文作者: malizhen</p><p>原文链接: <a href="http://malizhen.github.io/2019/06/26/Compression/">http://malizhen.github.io/2019/06/26/Compression/</a></p><p>版权声明: 转载请注明出处（必须保留原文作者署名及原文链接）</p></blockquote></div><div class="tags"><a href="/tags/compression-algorithm/">compression algorithm</a></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/06/12/DRAM-Hierarchy/" class="next">DRAM层次结构</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation"><span class="toc-text">Motivation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Benefits-of-Data-Compression"><span class="toc-text">Benefits of Data Compression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Opportunities-for-Compression"><span class="toc-text">Opportunities for Compression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenge-in-using-Compression"><span class="toc-text">Challenge in using Compression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Need-of-Carefully-Choosing-Data-Block-Size"><span class="toc-text">Need of Carefully Choosing Data-Block Size</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-Compression-Algorithm"><span class="toc-text">Some Compression Algorithm</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/26/Compression/">Data Compression Techniques for Cache and Main Memory</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/12/DRAM-Hierarchy/">DRAM层次结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/VsCode/">VSCode:Remote-SSH配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/06/Base-Delta-Immediate Compression/">Base-Delta-Immediate Compression</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/06/Chongqing/">重庆四人游</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/存储/">存储</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/搭建与配置/">搭建与配置</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/论文阅读记录/">论文阅读记录</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/compression-algorithm/" style="font-size: 15px;">compression algorithm</a> <a href="/tags/旅游/" style="font-size: 15px;">旅游</a> <a href="/tags/DRAM/" style="font-size: 15px;">DRAM</a> <a href="/tags/VSCode/" style="font-size: 15px;">VSCode</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li></ul></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">malizhen.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.3"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.3" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
