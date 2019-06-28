@@ -2,7 +2,8 @@
 <p>gem5模拟器目前支持多种ISAs，包括Alpha、ARM、MIPS、Power、SPARC和x86。模拟器的模块性允许这些不同的ISAs插入到通用CPU模型和内存系统中，而不需要为每一种ISAs设置一种专用的CPU模型和存储模型，这使得模拟器模块化程度较高且易于在不同CPU之间切换。</p>
 <p>M5是由Michigan大学开发的一款开源的多处理机模拟器，受到了业内的广泛关注，很多高水平论文都采用M5作为研究工具。另一方面，Wisconsin推出的GEMS能够对储存层次进行详细而灵活的模拟，包括对多种不同的cache一致性协议和互联模型的支持。目前的GEM5是M5和GEMS的一个紧耦合版本。</p>
 <h2 id="总体目标"><a href="#总体目标" class="headerlink" title="总体目标"></a>总体目标</h2><p>gem5模拟器的目标是成为一个用于体系结构建模的优秀工具。这一目标的三个关键方面是灵活性，可用性，高度可协作性。</p>
-<h3 id="灵活性"><a href="#灵活性" class="headerlink" title="灵活性"></a>灵活性</h3><p>灵活性是一个好的模拟器的基础。当一个想法从概念落地到一个特定的设计时，程序员需要一个工具来评估系统，平衡仿真速度和准确性。不同类型的实验可能有不同的模拟要求。例如，某些实验可能需要一个精细的CPU模型，但是没有必要进行多核建模。而某些实验可能需要多个CPU，但是这些CPU不需要太多的细节。所以模拟器的灵活性必不可少，使得程序员能够以更少的开销更快地完成更多的工作。</p>
+<p><img src="https://github.com/Malizhen/Malizhen.github.io/blob/master/images/gem5/1.png?raw=true" alt="images"></p>
+<pre><code>图一   Speed vs. Accuracy</code></pre><h3 id="灵活性"><a href="#灵活性" class="headerlink" title="灵活性"></a>灵活性</h3><p>灵活性是一个好的模拟器的基础。当一个想法从概念落地到一个特定的设计时，程序员需要一个工具来评估系统，平衡仿真速度和准确性。不同类型的实验可能有不同的模拟要求。例如，某些实验可能需要一个精细的CPU模型，但是没有必要进行多核建模。而某些实验可能需要多个CPU，但是这些CPU不需要太多的细节。所以模拟器的灵活性必不可少，使得程序员能够以更少的开销更快地完成更多的工作。</p>
 <p>gem5模拟器就是这样一个工具，提供了各种各样的功能和组件，涵盖了仿真速度和精度之间的权衡。如图1所示。</p>
 <h4 id="CPU模型"><a href="#CPU模型" class="headerlink" title="CPU模型"></a>CPU模型</h4><p>gem5模拟器目前提供了四种不同的CPU模型：AtomicSimple、TimingSimple、InOrder和O3。AtomicSimple和TimingSimple是非流水线CPU模型，AtomicSimple是一种最小的单IPC CPU模型，适用于快速功能模拟；TimingSimple与之类似，但是使用了存储器访问时序模型，用以统计存储器访问延迟；InOrder是一个按序流水线CPU模型，该模式下，可以配置硬件支持的线程数量；O3是一个乱序流水线CPU模型，可以支持超标量结构和SMT。InOrder与O3都是execute-in-execute（指令的执行只在执行阶段）的设计。</p>
 <h4 id="系统模式"><a href="#系统模式" class="headerlink" title="系统模式"></a>系统模式</h4><p>gem5支持两种执行模式：System-call Emulation（SE）和Full-System（FS）。</p>
