@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malizhen.github.io/"/>
-  <updated>2019-06-28T07:07:08.096Z</updated>
+  <updated>2019-07-01T12:45:39.590Z</updated>
   <id>http://malizhen.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Frequent Pattern Compression</title>
+    <link href="http://malizhen.github.io/2019/07/01/FPC/"/>
+    <id>http://malizhen.github.io/2019/07/01/FPC/</id>
+    <published>2019-07-01T12:39:37.000Z</published>
+    <updated>2019-07-01T12:45:39.590Z</updated>
+    
+    <content type="html"><![CDATA[<p>Frequent Pattern Compression: A Significance-Based Compression Scheme for L2 Caches（ <a href="https://pdfs.semanticscholar.org/e7c6/f67a70b5cf0842a7a2fc497131a79b6ee2c5.pdf" target="_blank" rel="noopener">原文链接</a>）。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Frequent Pattern Compression: A Significance-Based Compression Scheme for L2 Caches（ &lt;a href=&quot;https://pdfs.semanticscholar.org/e7c6/f67a7
+      
+    
+    </summary>
+    
+      <category term="论文阅读记录" scheme="http://malizhen.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"/>
+    
+    
+      <category term="compression algorithm" scheme="http://malizhen.github.io/tags/compression-algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Gem5简介</title>
