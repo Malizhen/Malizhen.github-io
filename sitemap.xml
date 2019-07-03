@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://malizhen.github.io/2019/06/26/Compression/</loc>
+    
+    <lastmod>2019-07-03T13:38:29.242Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://malizhen.github.io/2019/07/01/FPC/</loc>
     
     <lastmod>2019-07-02T08:29:21.577Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://malizhen.github.io/2019/06/28/Gem5/</loc>
     
     <lastmod>2019-06-28T07:07:08.096Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://malizhen.github.io/2019/06/26/Compression/</loc>
-    
-    <lastmod>2019-06-28T06:47:55.702Z</lastmod>
     
   </url>
   
