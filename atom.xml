@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malizhen.github.io/"/>
-  <updated>2019-07-04T13:36:17.091Z</updated>
+  <updated>2019-07-05T07:13:39.164Z</updated>
   <id>http://malizhen.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://malizhen.github.io/2019/07/04/FPC-flip_write/"/>
     <id>http://malizhen.github.io/2019/07/04/FPC-flip_write/</id>
     <published>2019-07-04T13:20:22.000Z</published>
-    <updated>2019-07-04T13:36:17.091Z</updated>
+    <updated>2019-07-05T07:13:39.164Z</updated>
     
-    <content type="html"><![CDATA[<p>Compression Architecture for Bit-write Reduction in Non-volatile Memory Technologies（<a href="http://delivery.acm.org/10.1145/2780000/2770300/p51-dgien.pdf?ip=222.20.77.178&id=2770300&acc=ACTIVE%20SERVICE&key=BF85BBA5741FDC6E%2ECC932049E1B2BA72%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1562247519_a0ff70170b7d28f7d9da26e6ca5db2c3" target="_blank" rel="noopener">原文链接</a>）。</p>]]></content>
+    <content type="html"><![CDATA[<p>Compression Architecture for Bit-write Reduction in Non-volatile Memory Technologies（<a href="http://delivery.acm.org/10.1145/2780000/2770300/p51-dgien.pdf?ip=222.20.77.178&id=2770300&acc=ACTIVE%20SERVICE&key=BF85BBA5741FDC6E%2ECC932049E1B2BA72%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&__acm__=1562247519_a0ff70170b7d28f7d9da26e6ca5db2c3" target="_blank" rel="noopener">原文链接</a>）。本文提出了一个基于压缩的架构，实现位写减少。位写减少有很多的好处，包括降低写延迟、降低动态功耗、提高耐受力。提出一个集成进NVM模块的架构，包括（i）一个频繁模式压缩-解压引擎；（ii）和一个比较器协同工作实现减少位写；（iii）一个投机取巧的磨损均衡方案，通过减少部分cell位反复写，平衡分布写，提高内存的耐受力。</p><h2 id="Compression-based-NVM"><a href="#Compression-based-NVM" class="headerlink" title="Compression-based NVM"></a>Compression-based NVM</h2><p>本文描述的压缩架构的核心思想是内存中word被一个new word重写的时候，利用一个简单的压缩方案来减少位写。目前最先进的针对这部分的研究有<a href="https://ieeexplore.ieee.org/document/4253313" target="_blank" rel="noopener">DCW</a>和<a href="https://dl.acm.org/citation.cfm?id=1669157" target="_blank" rel="noopener">FNW</a>。与DRAM不同，DRAM在每次读写操作期间，所在的整个内存行需要被写回。而在NVM中，刷新没有发生变化的位没有必要。</p><h4 id="Write"><a href="#Write" class="headerlink" title="Write"></a>Write</h4><p>集成了本文架构的NVM模块如何处理写请求？首先，直接集成在NVM模块中的CDE（Compression-Decompression Engine）尝试压缩写入的新数据，CDE实现了基于FPC（见上篇博客）的压缩方法。然后，当CDE尝试压缩数据的同时，NVM模块控制器读取NVM数组中目标地址的数据（旧数据）。一旦压缩完成，旧数据和新数据逐位比较找不同位，否则，直接写入未压缩数据。基于逐位比较结果，只更新写入新旧数据之间对应不同的位（差分写）。最后，系统更新压缩tag位，来表明该地址的数据是否被压缩。</p><h4 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h4><p>在读访问过程中，执行步骤和写数据相反。首先，CDE从NVM数组读取word及其对应的tag位。检查tag位确定读取的word是否被压缩，若被压缩，该word经过CDE，解压结果直接转发到处理器。否则，该word略过CDE组件，直接被转发到处理器。</p><h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><p>如下图所示，CDE直接集成到NVM模块，实现数据在写操作期间的无缝压缩与解压。添加额外的电路，实现新数据经过CDE，允许未压缩的数据在读操作期间绕过CDE被读取。NVM阵列也相应地修改，以支持tag位标记是否压缩和磨损均衡。NVM阵列中每个32-bit word，添加两个tag位，一个tag用于表示内存中数据是否被压缩，另一个tag用于磨损均衡技术中表示“normal”写还是“flip”写。这里的tag位带来的额外存储开销与FNW方案中一样，FNW中每16-bit要求1 tag。</p><h3 id="Frequent-Pattern-Compression-FPC"><a href="#Frequent-Pattern-Compression-FPC" class="headerlink" title="Frequent Pattern Compression(FPC)"></a>Frequent Pattern Compression(FPC)</h3><p>写访问期间，CDE压缩写入的新数据时，利用基于FPC的压缩方法，首先检查word的内容，确定是否匹配FPC模式表中的某种模式，如果匹配，CDE添加相应前缀压缩编码该word。读访问期间，这个3-bit的前缀用来确定匹配的模式，CDE可以根据模式表反向解码该word。</p>]]></content>
     
     <summary type="html">
     
