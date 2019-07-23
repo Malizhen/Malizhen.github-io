@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://malizhen.github.io/2019/07/11/SubArray-Write/</loc>
+    <loc>http://malizhen.github.io/2019/07/23/BDI%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2019-07-23</lastmod>
+  </url>  <url>
+    <loc>http://malizhen.github.io/2019/07/11/SubArray.cpp%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
     <lastmod>2019-07-22</lastmod>
   </url>  <url>
     <loc>http://malizhen.github.io/2019/07/18/%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2019-07-18</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/07/04/FPC-flip_write/</loc>
+    <loc>http://malizhen.github.io/2019/07/04/Compression%20Architecture%20for%20Bit-write%20Reduction/</loc>
     <lastmod>2019-07-05</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/06/26/Compression/</loc>
+    <loc>http://malizhen.github.io/2019/06/26/Data%20Compression%20Techniques%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2019-07-04</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/07/01/FPC/</loc>
+    <loc>http://malizhen.github.io/2019/07/01/Frequent%20Pattern%20Compression/</loc>
     <lastmod>2019-07-04</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/06/28/Gem5/</loc>
+    <loc>http://malizhen.github.io/2019/06/28/Gem5%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2019-06-28</lastmod>
   </url>  <url>
     <loc>http://malizhen.github.io/2019/06/06/Base-Delta-Immediate%20Compression/</loc>
     <lastmod>2019-06-13</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/06/12/DRAM-Hierarchy/</loc>
+    <loc>http://malizhen.github.io/2019/06/12/DRAM%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2019-06-13</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/06/06/Chongqing/</loc>
+    <loc>http://malizhen.github.io/2019/06/06/%E9%87%8D%E5%BA%86%E5%9B%9B%E4%BA%BA%E6%B8%B8/</loc>
     <lastmod>2019-06-10</lastmod>
   </url>  <url>
-    <loc>http://malizhen.github.io/2019/06/10/VsCode/</loc>
+    <loc>http://malizhen.github.io/2019/06/10/VSCodeRemote-SSH%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2019-06-10</lastmod>
   </url>
 </urlset>
