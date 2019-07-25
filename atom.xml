@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://malizhen.github.io/"/>
-  <updated>2019-07-24T08:53:56.446Z</updated>
+  <updated>2019-07-25T12:57:44.544Z</updated>
   <id>http://malizhen.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FlipNWrite源码解析与修改</title>
+    <link href="http://malizhen.github.io/2019/07/25/FlipNWrite%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BF%AE%E6%94%B9/"/>
+    <id>http://malizhen.github.io/2019/07/25/FlipNWrite源码解析与修改/</id>
+    <published>2019-07-25T12:48:22.000Z</published>
+    <updated>2019-07-25T12:57:44.544Z</updated>
+    
+    <content type="html"><![CDATA[<p>在阅读nvmain源码的过程中，发现nvmain里面自带有FlipNWrite的实现方法，只是默认的编码方式并不是FlipNWrite而是default。这是我试着自己修改nvmain代码的第一步，在config配置文件中设置编码方式，这样有一个好处，不用去修改源码，不需要重新编译，方式为根据config文件语法直接设置：DataEncoder FlipNWrite。运行测试命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/ARM/gem5.opt configs/example/se.py -c tests/<span class="built_in">test</span>-progs/hello/bin/arm/linux/hello --cpu-type=detailed --caches --l2cache --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config</span><br></pre></td></tr></table></figure><p>不出所料，测试结果中多了三行输出，但是似乎是错误的，全为0？怎么可能。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在阅读nvmain源码的过程中，发现nvmain里面自带有FlipNWrite的实现方法，只是默认的编码方式并不是FlipNWrite而是default。这是我试着自己修改nvmain代码的第一步，在config配置文件中设置编码方式，这样有一个好处，不用去修改源码，不需要
+      
+    
+    </summary>
+    
+      <category term="源码分析" scheme="http://malizhen.github.io/categories/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    
+    
+      <category term="nvmain" scheme="http://malizhen.github.io/tags/nvmain/"/>
+    
+  </entry>
   
   <entry>
     <title>PCM_ISSCC_2012_4GB配置文件参数解析</title>
