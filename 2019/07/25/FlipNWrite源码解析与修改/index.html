@@ -6,11 +6,8 @@
 <p>什么原因导致的呢？</p>
 <p>因为执行的se测试，负载为hello程序，根本没有写操作，从输出结果中也可以看出：</p>
 <p><img src="https://raw.githubusercontent.com/Malizhen/Malizhen.github.io/master/images/FlipNWrite%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BF%AE%E6%94%B9/write%200.png" alt="images"></p>
-<p>写次数为0，那位翻转次数当然也是0咯。那怎么半呢？</p>
-<p>（1）想过增加指令条数，但是增加至超级大了也不管用。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/X86/gem5.opt configs/example/se.py -c ../../Workspace/hello --cpu-type=detailed --caches --l2cache 64 --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config -I 10000000</span><br></pre></td></tr></table></figure>
-
-<p>（2）改写负载程序。</p>
+<p>写次数为0，那位翻转次数当然也是0咯。那怎么办呢？</p>
+<p>（1）改写负载程序。</p>
 <ol>
 <li>不使用自带的hello二进制程序负载进行测试，修改测试负载为有写操作的数组赋值操作，在/home/malizhen/Workspace文件夹下编写自己的hello.c如下：</li>
 </ol>
@@ -26,11 +23,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/X86/gem5.opt configs/example/se.py -c ../../Workspace/hello --cpu-type=detailed --caches --l2cache --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config</span><br></pre></td></tr></table></figure>
 
 <p>不幸的事，测试输出结果中写次数仍然为0，这就有点奇怪了。为什么呢？</p>
-<p>查看cache大小发现为64 B，太大了，设置更小的cache大小之后就搞定了，为啥呢？</p>
+<p>（2）想过增加指令条数，但是增加至超级大了也不管用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/X86/gem5.opt configs/example/se.py -c ../../Workspace/hello --cpu-type=detailed --caches --l2cache 64 --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config -I 10000000</span><br></pre></td></tr></table></figure>
+
+<p>（3）查看cache大小发现为64 B，太大了，设置更小的cache大小之后就搞定了，为啥呢？</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/X86/gem5.opt configs/example/se.py --cpu-clock=3GHz -n 4 -c ../../Workspace/hello --cpu-type=detailed --caches --l1d_size=32kB --l1d_assoc=8 --l1i_size=32kB --l1i_assoc=8 --l2cache --l2_size=256kB --l2_assoc=8 --l3cache --l3_size=4MB --l3_assoc=16 --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config</span><br></pre></td></tr></table></figure>
 
-<p>当时排查问题的时候，想要在函数里面直接cout，输出一些函数的中间值，进行查看分析。但是一旦修改了代码，就得重新编译，再进行测试，从测试的输出结果查看中间值，这种方法因为要反复编译，不建议。那有没有更好更简洁的方式呢？</p>
-<p>可以在gem5/m5out/stats.txt文件中查看更加详细的输出结果，比如命令行窗口结果中的：</p>
+<p><img src="https://raw.githubusercontent.com/Malizhen/Malizhen.github.io/master/images/FlipNWrite%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B8%8E%E4%BF%AE%E6%94%B9/write.png" alt="images"></p>
+<p>当时排查问题的时候，想要在函数里面直接cout，输出一些函数的中间值，进行查看分析。但是一旦修改了代码，就得重新编译，再进行测试，从测试的命令行输出结果能够查看中间值，这种方法因为要反复编译，不建议。那有没有更好更简洁的方式呢？可以参考网页<a href="http://gem5.org/Debugger_Based_Debugging" target="_blank" rel="noopener">gem5 Debug官方文档</a>使用gdb进行调试。</p>
+<p>另外可以在gem5/m5out/stats.txt文件中查看更加详细的输出结果，比如命令行窗口结果中的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i0.defaultMemory.totalReadRequests 4659</span><br><span class="line">i0.defaultMemory.totalWriteRequests 224</span><br></pre></td></tr></table></figure>
 
 <p>对应stats.txt文件中的:</p>
