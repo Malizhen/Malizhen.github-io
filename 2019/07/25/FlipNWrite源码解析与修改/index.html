@@ -22,7 +22,7 @@
 <p>生成hello*二进制文件，然后用该文件作为负载测试文件，不出意外会有写操作了。在这里要注意，二进制负载文件不使用自带的（自带的helloc二进制文件都在使用的对应架构的文件夹目录下）而是使用自己编译生成的（可以在任意目录下），这时只能在X86架构下进行测试，发现ALPHA和ARM架构下都会出错（如果将自己编译生成的二进制文件放进ALPHA和ARM架构文件夹目录下，应该也不会出错吧），这是因为电脑是X86，如果想在别的架构下运行任意二进制程序必须配置交叉编译环境。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/X86/gem5.opt configs/example/se.py -c ../../Workspace/hello --cpu-type=detailed --caches --l2cache --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config</span><br></pre></td></tr></table></figure>
 
-<p>不幸的事，测试输出结果中写次数仍然为0，这就有点奇怪了。为什么呢？</p>
+<p>不幸的是，测试输出结果中写次数仍然为0，这就有点奇怪了。为什么呢？</p>
 <p>（2）想过增加指令条数，但是增加至超级大了也不管用。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build/X86/gem5.opt configs/example/se.py -c ../../Workspace/hello --cpu-type=detailed --caches --l2cache 64 --mem-type=NVMainMemory --nvmain-config=./nvmain/Config/PCM_ISSCC_2012_4GB.config -I 10000000</span><br></pre></td></tr></table></figure>
 
